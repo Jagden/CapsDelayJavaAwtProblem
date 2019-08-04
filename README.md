@@ -30,18 +30,20 @@ To address this, this project patches rt.jar in the Java JRE to fix the problem.
 
 # Usage
 
-Compile using maven.
-mvn compile install
+Compile using maven:
+
+`mvn compile install`
 
 Run your Java with additional VM options:
 
 For example:
-java -javaagent:/tmp/capsDelayPatcher.jar SomeClass
+
+`java -javaagent:/tmp/capsDelayPatcher.jar SomeClass`
 
 To make IntelliJ run with these VM options, you need to add the JavaAgent to the idea vm.options file,
 for example in my case:
 
-/root/.IntelliJIdea2019.2/config/idea64.vmoptions
+`/root/.IntelliJIdea2019.2/config/idea64.vmoptions`
 
 Custom IntelliJ IDEA VM options:
 
@@ -64,6 +66,6 @@ Custom IntelliJ IDEA VM options:
 Jordan Sheinfeld, jordan.sheinfeld@gmail.com
 
 *Tested on Ubuntu 18.10*<br />
-*Tested on Java JDK 8*
+*Tested on Java JDK 8, JDK 11*
 
 Tags: java, capslock, delay, swing, awt, ubuntu, linux, caps lock, kbd, keyboard
