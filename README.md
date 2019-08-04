@@ -30,9 +30,34 @@ To address this, this project patches rt.jar in the Java JRE to fix the problem.
 
 # Usage
 
-In order to patch your JRE/JDK, download from releases the `patchCapsDelay.tar.gz` archive and run using the following:
+Compile using maven.
+mvn compile install
 
-`patch.sh [JDK_PATH]`
+Run your Java with additional VM options:
+
+For example:
+java -javaagent:/tmp/capsDelayPatcher.jar SomeClass
+
+To make IntelliJ run with these VM options, you need to add the JavaAgent to the idea vm.options file,
+for example in my case:
+
+/root/.IntelliJIdea2019.2/config/idea64.vmoptions
+
+Custom IntelliJ IDEA VM options:
+
+-javaagent:/mnt/nvme0n1p6/opt/Workspace/capsDelayPatch/target/capsDelayPatcher.jar
+-Xms128m
+-Xmx1946m
+-XX:ReservedCodeCacheSize=240m
+-XX:+UseConcMarkSweepGC
+-XX:SoftRefLRUPolicyMSPerMB=50
+-ea
+-Dsun.io.useCanonCaches=false
+-Djava.net.preferIPv4Stack=true
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:-OmitStackTraceInFastThrow
+-Dawt.useSystemAAFontSettings=lcd
+-Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine
 
 ## Author
 
